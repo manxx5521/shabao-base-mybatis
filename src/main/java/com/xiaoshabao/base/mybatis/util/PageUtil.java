@@ -1,5 +1,4 @@
 package com.xiaoshabao.base.mybatis.util;
-import com.github.pagehelper.PageHelper;
 import com.xiaoshabao.base.component.PageVo;
 
 /**
@@ -18,7 +17,7 @@ public class PageUtil {
 	 */
 	public static void startPage(PageVo pageVo) {
 		if (pageVo.getIndex() != null && pageVo.getSize() != null) {
-			PageHelper.startPage(pageVo.getIndex(), pageVo.getSize());
+//			PageHelper.startPage(pageVo.getIndex(), pageVo.getSize());
 		}
 	}
 
@@ -32,7 +31,7 @@ public class PageUtil {
 	 */
 	public static void startPage(Integer page, Integer rows) {
 		if (page != null && rows != null) {
-			PageHelper.startPage(page, rows);
+//			PageHelper.startPage(page, rows);
 		}
 	}
 

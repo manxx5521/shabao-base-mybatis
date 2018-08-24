@@ -1,10 +1,11 @@
 package com.xiaoshabao.base.mybatis;
 
-import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.xiaoshabao.base.BaseApplication;
 
-@MapperScan(basePackages="com.xiaoshabao.**.mapper")
+//@MapperScan(basePackages="com.xiaoshabao.**.mapper")//在
+@ComponentScan(basePackages = { "com.xiaoshabao.base.mybatis.config" })
 public class BaseMybatisApplicaiton extends BaseApplication {
 
 }

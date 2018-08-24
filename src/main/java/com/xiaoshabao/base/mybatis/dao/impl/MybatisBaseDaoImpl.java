@@ -8,11 +8,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
-import com.github.pagehelper.PageHelper;
 import com.xiaoshabao.base.component.PageDto;
 import com.xiaoshabao.base.component.PageVo;
 import com.xiaoshabao.base.dao.BaseDao;
 import com.xiaoshabao.base.lang.DaoEnum;
+import com.xiaoshabao.base.mybatis.util.PageUtil;
 
 /**
  * 通用的数据库操作组件
@@ -142,7 +142,7 @@ public class MybatisBaseDaoImpl extends SqlSessionDaoSupport implements BaseDao 
 	@Override
 	public <T, P extends PageVo> PageDto<T> getDataPaging(Class<T> clazz,
 			P pageVo) {
-		PageHelper.startPage(pageVo.getIndex(),pageVo.getSize());
+		PageUtil.startPage(pageVo.getIndex(),pageVo.getSize());
 		PageDto<T> result=new PageDto<T>(pageVo);
 		List<T> list=this.getSqlSession().<T> selectList(
 				DaoEnum.PAGINGQUERY.getVlaue() + clazz.getSimpleName(),pageVo);

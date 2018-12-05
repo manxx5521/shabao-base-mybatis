@@ -5,6 +5,7 @@ import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 
 @Configuration
@@ -71,6 +72,12 @@ public class MybatisPlusConfig {
         MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
         scannerConfigurer.setBasePackage("com.xiaoshabao.**.mapper*");
         return scannerConfigurer;
+    }
+    
+    /**开启乐观锁*/
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
     }
 
     /*@Bean
